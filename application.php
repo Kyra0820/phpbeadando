@@ -1,10 +1,6 @@
 <?php
 session_start();
 
-// Példa bejelentkezés (ha szükséges a teszteléshez):
-// $_SESSION['loggedin'] = true;
-// $_SESSION['username'] = 'Valaki';
-
 // Üdvözlő üzenet
 $welcomeMessage = "Üdvözöllek!";
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && isset($_SESSION['username'])) {
@@ -31,12 +27,6 @@ if (isset($_GET['score']) && isset($_SESSION['username'])) {
     exit;
 }
 
-/**
- *  Megjeleníti a scoreboardot, 
- *  - Csökkenő sorrendben a győzelmek száma szerint
- *  - Sorszámozva (1., 2., 3., …)
- *  - Zöld stílusú, lekerekített táblázat
- */
 function displayScoreboard($scoreboardFile) {
     if (!file_exists($scoreboardFile)) {
         return "<p>Nincs még ranglista...</p>";
